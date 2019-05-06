@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Magenuts Pvt Ltd. All rights reserved.
+ 
+ */
+-->
+<page_types xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_types.xsd">
+	<type id="portfolio_index_view" label="Portfolio View Page"/>
+	<type id="portfolio_category_view" label="Portfolio Category Page"/>
+</page_types>

@@ -1,0 +1,109 @@
+<?php $portfolio = $this->getPortfolio() ?>
+<div class="row portfolio-details">
+	<div class="col-md-8 col-sm-7 col-xs-12">
+		<div class="portfolio-image">
+			<img src="<?php echo $this->getBaseImage($portfolio)?>" alt="" class="img-responsive"/>
+		</div>
+	</div>
+	
+	<div class="col-md-4 col-sm-5 col-xs-12">
+		<div class="portfolio-content">
+			<h1><?php echo $portfolio->getName() ?></h1>
+			<div class="description"><?php echo nl2br($portfolio->getDescription()) ?></div>
+			<table class="table portfolio-table">
+				<tbody>
+					<?php $date = $portfolio->getPortfolioDate() ?>
+					<?php if($date != ''): ?>
+						<tr>
+							<td><?php echo __('Date:') ?></td>
+							<td><?php echo date('F d, Y', strtotime($date))?></td>
+						</tr>
+					<?php endif ?>
+					
+					<?php $service = $portfolio->getServices() ?>
+					<?php if($service != ''): ?>
+						<tr>
+							<td><?php echo __('Project:') ?></td>
+							<td><a href="<?php echo $portfolio->getProjectUrl() ?>" target="_blank"><?php echo $service ?></a></td>
+						</tr>
+					<?php endif ?>
+					
+					<?php $client = $portfolio->getClient() ?>
+					<?php if($client != ''): ?>
+						<tr>
+							<td><?php echo __('Client:') ?></td>
+							<td><?php echo $client ?></td>
+						</tr>
+					<?php endif ?>
+					
+					<?php $skills = $portfolio->getSkills() ?>
+					<?php if($skills != ''): ?>
+						<tr>
+							<td><?php echo __('Skills:') ?></td>
+							<td><?php echo $skills ?></td>
+						</tr>
+					<?php endif ?>
+					<?php $categoryLinks = $this->getCategoriesLink($portfolio) ?>
+					<?php if($categoryLinks != ''): ?>
+						<tr>
+							<td><?php echo __('Categories:') ?></td>
+							<td><?php echo $categoryLinks ?></td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<?php $relatedPortfolio = $this->getRelatedPortfolio($portfolio) ?>
+	<?php if(count($relatedPortfolio)>0): ?>
+		<div class="portfolio-container col-md-12 col-sm-12 col-xs-12">
+			<div class="block-title">
+				<h3><?php echo __('Projects') ?></h3>
+			</div>
+			<div class="owl-carousel portfolio-carousel" id="portfolio_carousel">
+			<?php foreach($relatedPortfolio as $_portfolio): ?>
+				<div class="item">
+					<?php $address = $this->getPortfolioAddress($_portfolio) ?>
+					<div class="portfolio-top-content">
+						<a href="<?php echo $address; ?>"><img src="<?php echo $this->getThumbnailSrc($_portfolio)?>" alt="" class="img-responsive"/></a>
+						<span class="hover-info">
+							<span class="fa fa-search"></span>
+							<span class="project"><?php echo $_portfolio->getServices() ?></span>
+							<span class="categories"><?php echo $this->getCategoriesText($_portfolio)?></span>
+						</span>
+					</div>
+					<div class="portfolio-bottom-content">
+						<h4><a href="<?php echo $address; ?>"><?php echo $_portfolio->getName() ?></a></h4>
+						<p class="category-link"><?php echo $this->getCategoriesLink($_portfolio)?></p>
+					</div>
+				</div>
+			<?php endforeach ?>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			require([
+				'jquery',
+				'mgs/owlcarousel'
+			], function(jQuery){
+				(function($) {
+					$("#portfolio_carousel").owlCarousel({
+						items: 4,
+						nav: true,
+						dots: false,
+						autoplay: false,
+						margin: 30,
+						responsive:{
+							0 : {items: 1},
+							480 : {items: 1},
+							768 : {items: 2},
+							980 : {items: 4},
+							1200 : {items: 4}
+						}
+					});
+				})(jQuery);
+			});
+		</script>
+	<?php endif ?>
+</div>
