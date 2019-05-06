@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Magenuts Pvt Ltd. All rights reserved.
+ 
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magenuts_Portfolio::portfolio" title="Portfolio" sortOrder="100">
+                    <resource id="Magenuts_Portfolio::save" title="Save Item" sortOrder="10" />
+                    <resource id="Magenuts_Portfolio::delete" title="Delete Item" sortOrder="20" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

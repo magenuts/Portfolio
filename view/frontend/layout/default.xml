@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Magenuts Pvt Ltd. All rights reserved.
+ 
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="1column">
+	<head>
+		<css src="Magenuts_Portfolio::css/owl.carousel.css"/>
+		<css src="Magenuts_Portfolio::css/owl.theme.min.css"/>
+		<css src="Magenuts_Portfolio::css/portfolio.css"/>
+	</head>
+</page>

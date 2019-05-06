@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Magenuts Pvt Ltd. All rights reserved.
+ 
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magenuts_Portfolio::portfolio" title="Portfolio" module="Magenuts_Portfolio" sortOrder="50" parent="Magenuts_Core::menu" resource="Magenuts_Portfolio::portfolio"/>
+        <add id="Magenuts_Portfolio::portfolio_category" title="Portfolio Categories" module="Magenuts_Portfolio" sortOrder="10" parent="Magenuts_Portfolio::portfolio" action="adminhtml/portfolio/category" resource="Magenuts_Portfolio::portfolio_category"/>
+        <add id="Magenuts_Portfolio::portfolio_items" title="Portfolio Items" module="Magenuts_Portfolio" sortOrder="20" parent="Magenuts_Portfolio::portfolio" action="adminhtml/portfolio" resource="Magenuts_Portfolio::portfolio_items"/>
+    </menu>
+</config>

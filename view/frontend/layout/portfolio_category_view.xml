@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Magenuts Pvt Ltd. All rights reserved.
+ 
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="2columns-right">
+	<body>
+		<referenceContainer name="content">
+			<block class="Magenuts\Portfolio\Block\Category" name="portfolio.list" template="Magenuts_Portfolio::list.phtml"/>
+		</referenceContainer>
+		
+		<referenceBlock name="catalog.compare.sidebar" remove="true"/>
+		<referenceBlock name="cart_sidebar" remove="true"/>
+		<referenceBlock name="wishlist_sidebar" remove="true"/>
+		<referenceBlock name="sale.reorder.sidebar" remove="true"/>
+		<referenceBlock name="right.permanent.callout" remove="true"/>
+		<referenceBlock name="right.reports.product.compared" remove="true"/>
+		<referenceBlock name="right.reports.product.viewed" remove="true"/>
+		
+		<referenceContainer name="div.sidebar.additional">
+			<block class="Magenuts\Portfolio\Block\Category" name="portfolio.menu" template="Magenuts_Portfolio::menu.phtml" />
+		</referenceContainer>
+		
+    </body>
+</page>

@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+        <referenceContainer name="content">
+			<block class="Magenuts\Portfolio\Block\Adminhtml\Portfolio" name="adminhtml.portfolio.container">
+				<block class="Magento\Backend\Block\Widget\Grid" name="adminhtml.portfolio.container.grid" as="grid">
+					<arguments>
+						<argument name="id" xsi:type="string">portfolioGrid</argument>
+						<argument name="dataSource" xsi:type="object">Magenuts\Portfolio\Model\ResourceModel\Portfolio\Collection</argument>
+						<argument name="default_sort" xsi:type="string">portfolio_id</argument>
+						<argument name="save_parameters_in_session" xsi:type="boolean">true</argument>
+						<argument name="use_ajax" xsi:type="boolean">false</argument>
+						<argument name="grid_url" xsi:type="url" path="adminhtml/portfolio/index">
+							<param name="_current">1</param>
+						</argument>
+					</arguments>
+					<block class="Magento\Backend\Block\Widget\Grid\Massaction" name="adminhtml.portfolio.grid.massaction" as="grid.massaction">
+						<arguments>
+							<argument name="massaction_id_field" xsi:type="string">portfolio_id</argument>
+							<argument name="form_field_name" xsi:type="string">ids</argument>
+							<argument name="options" xsi:type="array">
+								<item name="delete" xsi:type="array">
+									<item name="label" xsi:type="string" translate="true">Delete</item>
+									<item name="url" xsi:type="string">adminhtml/portfolio/massDelete</item>
+									<item name="confirm" xsi:type="string" translate="true">Are you sure you want to delete?</item>
+								</item>
+								<item name="change_status" xsi:type="array">
+									<item name="label" xsi:type="string" translate="true">Change Status</item>
+									<item name="url" xsi:type="string">adminhtml/portfolio/massStatus</item>
+									<item name="block_name" xsi:type="string">grid.status</item>
+								</item>
+							</argument>
+						</arguments>
+						<block class="Magento\Backend\Block\Widget\Grid\Massaction\Additional" name="adminhtml.portfolio.grid.status" as="grid.status">
+							<arguments>
+								<argument name="fields" xsi:type="array">
+									<item name="visibility" xsi:type="array">
+										<item name="name" xsi:type="string">status</item>
+										<item name="type" xsi:type="string">select</item>
+										<item name="class" xsi:type="string">required-entry</item>
+										<item name="label" xsi:type="string" translate="true">Status</item>
+										<item name="values" xsi:type="array">
+											<item name="disable" xsi:type="array">
+												<item name="value" xsi:type="string">0</item>
+												<item name="label" xsi:type="string" translate="true">Disabled</item>
+											</item>
+											<item name="enable" xsi:type="array">
+												<item name="value" xsi:type="string">1</item>
+												<item name="label" xsi:type="string" translate="true">Enabled</item>
+											</item>
+										</item>
+									</item>
+								</argument>
+							</arguments>
+						</block>
+					</block>
+					<block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="adminhtml.portfolio.container.grid.columnSet" as="grid.columnSet">
+						<arguments>
+							<argument name="id" xsi:type="string">portfolioGrid</argument>
+							<argument name="rowUrl" xsi:type="array">
+								<item name="path" xsi:type="string">*/*/edit</item>
+								<item name="extraParamsTemplate" xsi:type="array">
+									<item name="id" xsi:type="string">getId</item>
+								</item>
+							</argument>
+						</arguments>
+						<block class="Magento\Backend\Block\Widget\Grid\Column" as="portfolio_id">
+							<arguments>
+								<argument name="header" xsi:type="string" translate="true">ID</argument>
+								<argument name="index" xsi:type="string">portfolio_id</argument>
+								<argument name="column_css_class" xsi:type="string">col-id</argument>
+								<argument name="header_css_class" xsi:type="string">col-id</argument>
+							</arguments>
+						</block>
+						<block class="Magento\Backend\Block\Widget\Grid\Column" as="name">
+							<arguments>
+								<argument name="header" xsi:type="string" translate="true">Name</argument>
+								<argument name="index" xsi:type="string">name</argument>
+							</arguments>
+						</block>
+						<block class="Magento\Backend\Block\Widget\Grid\Column" as="client">
+							<arguments>
+								<argument name="header" xsi:type="string" translate="true">Client</argument>
+								<argument name="index" xsi:type="string">client</argument>
+							</arguments>
+						</block>
+						
+						<block class="Magento\Backend\Block\Widget\Grid\Column" as="services">
+							<arguments>
+								<argument name="header" xsi:type="string" translate="true">Project</argument>
+								<argument name="index" xsi:type="string">services</argument>
+							</arguments>
+						</block>
+						
+						<block class="Magento\Backend\Block\Widget\Grid\Column" as="status">
+							<arguments>
+								<argument name="header" xsi:type="string" translate="true">Status</argument>
+								<argument name="index" xsi:type="string">status</argument>
+								<argument name="type" xsi:type="string">options</argument>
+								<argument name="options" xsi:type="array">
+									<item name="disable" xsi:type="array">
+										<item name="value" xsi:type="string">0</item>
+										<item name="label" xsi:type="string" translate="true">Disabled</item>
+									</item>
+									<item name="enable" xsi:type="array">
+										<item name="value" xsi:type="string">1</item>
+										<item name="label" xsi:type="string" translate="true">Enabled</item>
+									</item>
+								</argument>
+							</arguments>
+						</block>
+						
+						<block class="Magento\Backend\Block\Widget\Grid\Column" as="action">
+							<arguments>
+								<argument name="id" xsi:type="string">action</argument>
+								<argument name="header" xsi:type="string" translate="true">Action</argument>
+								<argument name="type" xsi:type="string">action</argument>
+								<argument name="getter" xsi:type="string">getId</argument>
+								<argument name="filter" xsi:type="boolean">false</argument>
+								<argument name="sortable" xsi:type="boolean">false</argument>
+								<argument name="is_system" xsi:type="boolean">true</argument>
+								<argument name="actions" xsi:type="array">
+									<item name="view_action" xsi:type="array">
+										<item name="caption" xsi:type="string" translate="true">Edit</item>
+										<item name="url" xsi:type="array">
+											<item name="base" xsi:type="string">adminhtml/portfolio/edit</item>
+										</item>
+										<item name="field" xsi:type="string">id</item>
+									</item>
+								</argument>
+								<argument name="header_css_class" xsi:type="string">col-actions</argument>
+								<argument name="column_css_class" xsi:type="string">col-actions</argument>
+							</arguments>
+						</block>
+					</block>
+				</block>
+			</block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+*::before, *::after {
+    box-sizing: border-box;
+}
+.row{
+	margin-left: -15px;
+	margin-right: -15px;
+	float:left;
+	position: relative;
+}
+.col-md-4{
+	width: 33.3333%;
+}
+.col-md-8{
+	width: 66.6667%;
+}
+.col-sm-6{
+	width: 50%;
+}
+.col-md-12{
+	width: 100%;
+}
+.col-md-8, .col-md-4,.col-md-12,.col-sm-8, .col-sm-4, .col-sm-12,
+.col-xs-12,.col-sm-6{
+	padding-left: 15px;
+	padding-right: 15px;
+	position: relative;
+	float:left;
+	min-height: 1px;
+}
+.col-md-8, .col-md-4,.col-md-12,.col-sm-8, .col-sm-4, .col-sm-12,
+.col-xs-12,.col-sm-6{float:left;}
+.portfolio-bottom-content h4 a{
+	color:#333;
+	font-weight: 400;
+}
+.portfolio-bottom-content h4{
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+.portfolio-top-content,.portfolio{
+	position: relative;
+	
+}
+.portfolio-bottom-content{
+	margin-bottom: 30px;
+}
+.portfolio-top-content .hover-info{display: none;}
+.portfolio-top-content:hover img{
+	opacity:0.5;
+	transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-webkit-transition:  all 0.3s ease 0s;
+	-ms-transition:  all 0.3s ease 0s;
+}
+
+.portfolio-details{
+	float:left;
+	width: 100%;
+}
+.img-responsive {display:block;height: auto; max-width: 100%;}
+.portfolio-carousel .owl-nav [class*="owl-"]{
+	width: 40px;
+	height: 40px;
+	border-radius: none;
+	background-color: #fff;
+	position: absolute;
+	top: 40%;
+	transition: transform 0.3s ease 0s;
+	-moz-transition: -moz-transform 0.3s ease 0s;
+	-webkit-transition: -webkit-transform 0.3s ease 0s;
+	-ms-transition: -ms-transform 0.3 ease 0s;
+	transform: translate(0px, -50%);
+	-moz-transform:translate(0px, -50%);
+	-webkit-transform:translate(0px, -50%);
+	-ms-transform:translate(0px, -50%);
+	opacity: 1;
+	visibility:hidden;
+	
+}
+.portfolio-carousel:hover .owl-nav .owl-next{
+	transform: translate(50%, -50%);
+	-moz-transform:translate(50%, -50%);
+	-webkit-transform:translate(50%, -50%);
+	-ms-transform:translate(50%, -50%);
+	opacity: 1;
+	visibility: visible;
+}
+.portfolio-carousel .owl-nav .owl-next{
+	right: 15px;
+	background: url(../images/next-right.png) no-repeat 100% 0 !important;
+	text-indent: 32px;
+}
+.portfolio-carousel:hover .owl-nav .owl-prev{
+	transform: translate(-50%, -50%);
+	-moz-transform:translate(-50%, -50%);
+	-webkit-transform:translate(-50%, -50%);
+	-ms-transform:translate(-50%, -50%);
+	opacity: 1;
+	visibility: visible;
+}
+.portfolio-carousel .owl-nav .owl-prev{
+	left: 15px;
+	background: url(../images/next-right.png) no-repeat 0% 0% !important;
+	text-indent: -999px;
+}
+
+@media(max-width: 992px){
+	.col-sm-6{width: 50%;}
+	.col-sm-12{width: 100%;}
+	.col-sm-4{width: 33.3333%;}
+	.col-sm-8{width: 66.6667%;}
+	.col-sm-5{width: 41.6667%;}
+}
+@media(max-width: 767px){
+	.col-xs-12{width: 100%;}
+}

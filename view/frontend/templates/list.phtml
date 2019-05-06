@@ -1,0 +1,30 @@
+<?php $portfolios = $this->getPortfolios() ?>
+<div class="row portfolio-container">
+	<?php if(count($portfolios)>0): ?>
+		<?php $helper = $this->helper('Magenuts\Portfolio\Helper\Data') ?>
+		<?php foreach($portfolios as $portfolio): ?>
+			<div class="col-md-4 col-sm-4 col-xs-12">
+				<div class="portfolio-top-content">
+					<?php $thumbnailUrl = $this->getThumbnailSrc($portfolio) ?>
+					<?php $portfolioUrl = $this->getPortfolioAddress($portfolio) ?>
+					<?php if($thumbnailUrl): ?>
+						<a href="<?php echo $portfolioUrl; ?>">
+							<img src="<?php echo $thumbnailUrl ?>" alt="" class="img-responsive"/>
+						</a>
+					<?php endif ?>
+					<span class="hover-info">
+						<span class="fa fa-search"></span>
+						<span class="project"><?php echo $portfolio->getServices() ?></span>
+						<span class="categories"><?php echo $this->getCategoriesText($portfolio)?></span>
+					</span>
+				</div>
+				<div class="portfolio-bottom-content">
+					<h4><a href="<?php echo $portfolioUrl; ?>"><?php echo $portfolio->getName() ?></a></h4>
+					<p class="category-link"><?php echo $this->getCategoriesLink($portfolio) ?></p>
+				</div>
+			</div>
+		<?php endforeach ?>
+	<?php else: ?>
+		<p class="note-msg"><?php echo $this->__('There are no portfolios matching the selection.') ?></p>
+	<?php endif ?>
+</div>

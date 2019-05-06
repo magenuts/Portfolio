@@ -1,0 +1,47 @@
+<?php $portfolios = $this->getPortfolios() 
+?>
+<div class="portfolio-container">
+	<?php if($this->getTitle()): ?>
+		<div class="block-title">
+			<h3><?php echo $this->getTitle() ?></h3>
+		</div>
+	<?php endif ?>
+	<?php if($this->hasData('note_text')): ?>
+		<div class="note-text">
+			<span><?php echo $this->getData('note_text') ?></span>
+		</div>
+	<?php endif ?>
+	<?php if(count($portfolios)>0): ?>
+		<?php 
+			$helper = $this->helper('Magenuts\Portfolio\Helper\Data');
+			$col = '';
+			if($this->hasData('per_row')){
+				$col = $this->getData('per_row');
+				$col = $helper->getColClass($col);
+			}
+		?>
+
+			<div class="portfolio-grid">
+			<?php foreach($portfolios as $portfolio): ?>
+				<div class="item<?php if($col !=''): ?> <?php echo $col; ?><?php endif; ?>">
+					<div class="portfolio-top-content">
+						<a href="<?php echo $portfolio->getAddress(); ?>"><img src="<?php echo $this->getThumbnailSrc($portfolio)?>" alt="" class="img-responsive"/></a>
+						<span class="hover-info">
+							<span class="fa fa-search"></span>
+							<span class="project"><?php echo $portfolio->getServices() ?></span>
+							<span class="categories"><?php echo $this->getCategoriesText($portfolio)?></span>
+						</span>
+					</div>
+					<div class="portfolio-bottom-content">
+						<h4><a href="<?php echo $portfolio->getAddress(); ?>"><?php echo $portfolio->getName() ?></a></h4>
+						<p class="category-link"><?php echo $this->getCategoriesLink($portfolio)?></p>
+					</div>
+				</div>
+			<?php endforeach ?>
+			
+		</div>
+
+	<?php else: ?>
+		<p class="note-msg"><?php echo $this->__('There are no portfolios matching the selection.') ?></p>
+	<?php endif ?>
+</div>
