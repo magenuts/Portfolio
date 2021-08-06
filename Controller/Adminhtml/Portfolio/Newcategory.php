@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2019 Magenuts Pvt Ltd. All rights reserved.
+ * * @copyright Copyright (c) 2017-2021 Magenuts IT Solutions Pvt Ltd. All rights reserved.
  
  */
 namespace Magenuts\Portfolio\Controller\Adminhtml\Portfolio;

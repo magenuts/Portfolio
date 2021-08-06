@@ -1,2 +1,2 @@
-# portfolio
-This is magento 2 module helps magento store admin to create portfolio in magento admin and show that at magento store front.
+# Magento 2 Portfolio Extension
+Magenuts Portfolio Magento 2 extension helps you to showcase your services, and work on your store easily. Grab the users attention with this extension and let your work speak for you. Magenuts Portfolio Extension for Magento 2 will help you to easily add and show your portfolio on your store. If you have the projects that use the products of your shop and you want to present it in your shop, you can use this extension to let your portfolio speak for you. This extension mostly used when you want to showcase the most satisfying services you completed to your customers/visitors.

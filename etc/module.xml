@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © 2019 Magenuts Pvt Ltd. All rights reserved.
+ * * @copyright Copyright (c) 2017-2021 Magenuts IT Solutions Pvt Ltd. All rights reserved.
  
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Magenuts_Portfolio" setup_version="0.1.0" active="true"/>
+    <module name="Magenuts_Portfolio" setup_version="1.0.0" active="true"/>
 </config>
