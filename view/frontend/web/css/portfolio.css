@@ -60,7 +60,13 @@
 	float:left;
 	width: 100%;
 }
-.img-responsive {display:block;height: auto; max-width: 100%;}
+.img-responsive {
+    display:block;      
+    max-width: 150px;
+    min-height: 150px;
+    min-width: 150px;
+    max-height: 150px;
+}
 .portfolio-carousel .owl-nav [class*="owl-"]{
 	width: 40px;
 	height: 40px;

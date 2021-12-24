@@ -10,5 +10,15 @@
 		<css src="Magenuts_Portfolio::css/owl.carousel.css"/>
 		<css src="Magenuts_Portfolio::css/owl.theme.min.css"/>
 		<css src="Magenuts_Portfolio::css/portfolio.css"/>
-	</head>
+	</head>	
+	<body>
+        <referenceBlock name="header.links">
+            <block class="Magenuts\Portfolio\Block\Link" name="portfolio-top-link" before="my-account-link">
+            	<arguments>
+                    <argument name="label" xsi:type="string" translate="true">Portfolio</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
 </page>
+
